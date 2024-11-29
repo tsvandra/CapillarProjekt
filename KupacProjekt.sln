@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.Data", "Kupac.Data\Kupac.Data.csproj", "{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.UI.Main", "Kupac.UI.Main\Kupac.UI.Main.csproj", "{8BA93E3A-4916-4D66-AC43-2A2DDC392153}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.UI.Customers", "Kupac.UI.Customers\Kupac.UI.Customers.csproj", "{BF53D212-99A3-491B-B998-B6285FAB617A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.Shared", "Kupac.Shared\Kupac.Shared.csproj", "{B8E3A213-9D63-4F6B-9DA5-301E9931596F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BA93E3A-4916-4D66-AC43-2A2DDC392153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BA93E3A-4916-4D66-AC43-2A2DDC392153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BA93E3A-4916-4D66-AC43-2A2DDC392153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BA93E3A-4916-4D66-AC43-2A2DDC392153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF53D212-99A3-491B-B998-B6285FAB617A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF53D212-99A3-491B-B998-B6285FAB617A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF53D212-99A3-491B-B998-B6285FAB617A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF53D212-99A3-491B-B998-B6285FAB617A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
