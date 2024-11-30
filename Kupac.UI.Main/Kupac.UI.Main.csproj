@@ -10,6 +10,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kupac.Data\Kupac.Data.csproj" />
+    <ProjectReference Include="..\Kupac.Resources\Kupac.Resources.csproj" />
+    <ProjectReference Include="..\Kupac.UI.Customers\Kupac.UI.Customers.csproj" />
+    <ProjectReference Include="..\Kupac.UI.Shared\Kupac.UI.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

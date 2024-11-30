@@ -9,15 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.UI.Main", "Kupac.UI.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.UI.Customers", "Kupac.UI.Customers\Kupac.UI.Customers.csproj", "{BF53D212-99A3-491B-B998-B6285FAB617A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.Shared", "Kupac.Shared\Kupac.Shared.csproj", "{B8E3A213-9D63-4F6B-9DA5-301E9931596F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.Resources", "Kupac.Resources\Kupac.Resources.csproj", "{315AC113-1BE9-4E30-ACBA-38853F6F0BC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kupac.UI.Shared", "Kupac.UI.Shared\Kupac.UI.Shared.csproj", "{6628E2A5-C05E-42CD-B39B-DD21E3037EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ECD00DEF-9EBE-4B82-B173-F7ACBC312762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,9 +31,16 @@ Global
 		{BF53D212-99A3-491B-B998-B6285FAB617A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF53D212-99A3-491B-B998-B6285FAB617A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF53D212-99A3-491B-B998-B6285FAB617A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8E3A213-9D63-4F6B-9DA5-301E9931596F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{315AC113-1BE9-4E30-ACBA-38853F6F0BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{315AC113-1BE9-4E30-ACBA-38853F6F0BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{315AC113-1BE9-4E30-ACBA-38853F6F0BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{315AC113-1BE9-4E30-ACBA-38853F6F0BC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6628E2A5-C05E-42CD-B39B-DD21E3037EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6628E2A5-C05E-42CD-B39B-DD21E3037EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6628E2A5-C05E-42CD-B39B-DD21E3037EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6628E2A5-C05E-42CD-B39B-DD21E3037EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
