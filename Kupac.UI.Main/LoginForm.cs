@@ -8,13 +8,10 @@ namespace Kupac.UI.Main
 {
     public partial class LoginForm : BaseForm
     {
-       // public string imagePath = Path.Combine(Application.StartupPath, "Resources", "human_icon.png");
         public LoginForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            //pictureBox1.Image = Image.FromFile(imagePath);
-            
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

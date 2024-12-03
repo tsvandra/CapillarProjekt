@@ -11,7 +11,7 @@ namespace Kupac.DbContexts
         {
             try
             {
-                // Konfiguráció betöltése az appsettings.json-ből
+                // Loading configuration from appsettings.json
                 var configuration = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)

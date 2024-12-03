@@ -42,7 +42,7 @@ namespace Kupac.UI.Customers
 
             if (isEditMode && customer != null)
             {
-                // Töltsd be a meglévő ügyfél adatait
+                // Load existing customer data
                 nameTextbox.Text = customer.FirstName;
                 priezviskoTextBox.Text = customer.LastName;
                 emailTextBox.Text = customer.Email;

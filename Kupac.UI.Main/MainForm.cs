@@ -17,12 +17,10 @@ namespace Kupac.UI.Main
         private CustomersEditorForm customersEditorForm;
         private Button activeButton = null;
         
-        //inicializacio
+        //inicialisation
         public MainForm()
         {
             InitializeComponent();
-
-            //userPictureBox.Image = Resources.Resources.kinga_200x200;
             if (Kupac.Resources.Resource.kinga_200x200 != null)
             {
 
@@ -33,12 +31,6 @@ namespace Kupac.UI.Main
                 MessageBox.Show("Obrázok sa nenašiel");
             }
 
-
-            //byte[] imageData = Resources.Resources.kinga_200x200;
-            //using (MemoryStream ms = new MemoryStream(imageData))
-            //{
-            //    userPictureBox.Image = Image.FromStream(ms);
-            //}
             this.StartPosition = FormStartPosition.CenterScreen;
 
             foreach (Control control in navigationalPanel.Controls)
@@ -56,10 +48,10 @@ namespace Kupac.UI.Main
 
         private void SetButtonColor(Button button, bool isActive)
         {
-            // Az előző gomb visszaállítása az eredeti színre
+            // Reset the previous button to its original color
             if (isActive)
             {
-                button.BackColor = Color.AntiqueWhite;  // Eredeti szín
+                button.BackColor = Color.AntiqueWhite;  // original color
             }
             else
             {
@@ -74,39 +66,39 @@ namespace Kupac.UI.Main
 
         private void LoadFormIntoPanel(Form form)
         {
-            // Előzőleg betöltött form bezárása, ha van
+            // Close the previously loaded form, if any
             if (this.mainInformationPanel.Controls.Count > 0)
             {
                 this.mainInformationPanel.Controls[0].Hide();
                 this.mainInformationPanel.Controls.Clear();
             }
 
-            // Új form betöltése a panelbe
+            // Load the new form into the panel
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
 
-            // Hozzáadjuk a formot a panelhez
+            // Add the form to the panel
             this.mainInformationPanel.Controls.Add(form);
 
             form.Show();
         }
-        // just to test branches
+
         private void navigationButton_Click(object sender, EventArgs e)
         {
             if (sender is Button clickedButton)
             {
-                // Előző aktív gomb színének visszaállítása
+                // Reset the color of the previously active button
                 if (activeButton != null && activeButton != clickedButton)
                 {
                     SetButtonColor(activeButton, false);
                 }
 
-                // Az új aktív gomb beállítása
+                // Set the new active button
                 SetButtonColor(clickedButton, true);
                 activeButton = clickedButton;
 
-                // Gombhoz tartozó logika meghívása
+                // Invoke logic associated with the clicked button
                 if (clickedButton == customersButton)
                 {
                     if (customersEditorForm == null || customersEditorForm.IsDisposed)
@@ -117,44 +109,41 @@ namespace Kupac.UI.Main
                 }
                 else if (clickedButton == dashBoardButton)
                 {
-                    // Dashboard betöltése (amennyiben lesz implementálva)
-                    LoadFormIntoPanel(new Form()); // Csak egy példa
+                    // Load the dashboard (to be implemented)
+                    LoadFormIntoPanel(new Form()); // Placeholder example
                 }
                 else if (clickedButton == ordersButton)
                 {
-                    // Orders betöltése (amennyiben lesz implementálva)
-                    LoadFormIntoPanel(new Form()); // Csak egy példa
+                    // Load orders (to be implemented)
+                    LoadFormIntoPanel(new Form()); // Placeholder example
                 }
             }
         }
 
-        // Egér beállítása, ha fölé megyünk
+
+        // Set mouse hover behavior
         private void navigationButton_MouseEnter(object sender, EventArgs e)
         {
             if (sender is Button currentButton)
             {
-                
-                // Csak akkor változtatjuk a színt, ha nem az aktív gomb
+                // Change the color only if it's not the active button
                 if (currentButton != activeButton)
                 {
-                    currentButton.BackColor = Color.PeachPuff; // Hover szín
-                    
+                    currentButton.BackColor = Color.PeachPuff; // Hover color
                 }
             }
-            
         }
 
-        // Egér elhagyása esetén
+
+        // Behavior when the mouse leaves the button
         private void navigationButton_MouseLeave(object sender, EventArgs e)
         {
             if (sender is Button currentButton)
             {
-                //MessageBox.Show($"MouseEnter: {currentButton.BackColor.Name}");
-                // Csak akkor állítjuk vissza az alapértelmezett színt, ha nem az aktív gomb
+                // Reset to the default color only if it's not the active button
                 if (currentButton != activeButton)
                 {
-                    currentButton.BackColor = Color.SeaShell;
-                    //SetButtonColor(currentButton, false);
+                    currentButton.BackColor = Color.SeaShell; // Default color
                 }
             }
         }
@@ -163,29 +152,13 @@ namespace Kupac.UI.Main
         {
             if (sender is Button currentButton && currentButton != activeButton)
             {
-                // Ellenőrizzük, hogy az egér valóban a gombon belül van-e
+                // Check if the mouse is actually within the button's boundaries
                 if (currentButton.ClientRectangle.Contains(e.Location))
                 {
                     currentButton.BackColor = Color.PeachPuff;
                 }
             }
         }
-
-        //private void dashBoardButton_Click(object sender, EventArgs e)
-        //{
-        //    SetButtonColor(dashBoardButton, Color.AntiqueWhite);
-        //}
-
-        //private void customersButton_Click(object sender, EventArgs e)
-        //{
-        //    if (customersEditorForm == null || customersEditorForm.IsDisposed)
-        //    { 
-        //        customersEditorForm = new CustomersEditorForm();
-        //    }
-
-        //    LoadFormIntoPanel(customersEditorForm);
-        //    SetButtonColor(customersButton, Color.AntiqueWhite);
-        //}
 
         public void RefreshCustomerGrid()
         {

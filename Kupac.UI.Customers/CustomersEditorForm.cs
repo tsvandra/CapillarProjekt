@@ -38,7 +38,7 @@ namespace Kupac
                     column.AutoSizeMode = DataGridViewAutoSizeColumnMode.NotSet;
                 }
 
-                // Az utolsó oszlop kitöltése
+                // Fill in the last column
                 var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 2];
                 lastColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
@@ -48,11 +48,11 @@ namespace Kupac
         {
             if (customerDataGridView.Columns.Count > 0)
             {
-                // Az utolsó oszlop kitöltésének engedélyezése
+                // Enable editing for the last column
                 var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 2];
                 lastColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-                // A többi oszlop fix méretű
+                // The other columns have fixed sizes
                 foreach (DataGridViewColumn column in customerDataGridView.Columns)
                 {
                     if (column != lastColumn)
@@ -149,6 +149,7 @@ namespace Kupac
         {
             using (Graphics g = customerDataGridView.CreateGraphics())
             {
+                // lower, "* 1.5" is for differences between in calculations - not the best way, but some workaruond
                 SizeF textSize = g.MeasureString(column.HeaderText, customerDataGridView.Font);
                 return (int)(textSize.Width * 1.5) + 10;
             }
@@ -156,13 +157,13 @@ namespace Kupac
 
         private int GetOptimalColumnWidth(DataGridViewColumn column)
         {
-            // Kiszámítja az optimális szélességet a fejléchez és az első néhány adat sorhoz igazítva
+            // Calculates the optimal width based on the header and the first few rows of data
             using (Graphics g = customerDataGridView.CreateGraphics())
             {
-                // Mérjük meg a fejléc szélességét
+                // Measure the width of the header
                 SizeF headerSize = g.MeasureString(column.HeaderText, customerDataGridView.Font);
 
-                // Vegyük figyelembe az első néhány cella szélességét is
+                // Also consider the width of the first few cells
                 float maxWidth = headerSize.Width;
 
                 foreach (DataGridViewRow row in customerDataGridView.Rows)
@@ -173,19 +174,20 @@ namespace Kupac
                         maxWidth = Math.Max(maxWidth, cellSize.Width);
                     }
                 }
-
+                
                 var headerWidth = GetHeaderTextWidth(column);
                 if (headerWidth > ((int)maxWidth + 20))
                 {
                     return headerWidth;
                 }
-                // Biztonsági tartalék hozzáadása és kerekítés egész számra
+                // Add a safety margin and round to the nearest integer
                 else
                 {
                     return (int)maxWidth + 20;
                 }
             }
         }
+
 
         private void addNewCustomerButton_Click(object sender, EventArgs e)
         {
@@ -202,7 +204,7 @@ namespace Kupac
         {
             try
             {
-                // Betöltési animáció megjelenítése
+                // Display loading animation
                 loadingPictureBox.Visible = true;
 
                 await Task.Run(() =>
@@ -214,7 +216,7 @@ namespace Kupac
 
                 });
 
-                // Adatok frissítése
+                // Update data
                 customerDataGridView.DataSource = null;
                 customerDataGridView.DataSource = _customerManager.GetCustomers();
 
@@ -226,7 +228,7 @@ namespace Kupac
             }
             finally
             {
-                // Betöltési animáció elrejtése
+                // Hide loading animation
                 loadingPictureBox.Visible = false;
             }
         }
@@ -237,17 +239,17 @@ namespace Kupac
             {
                 try
                 {
-                    // Az ügyfél ID-jének lekérése
+                    // Retrieve the customer ID
                     int customerId = Convert.ToInt32(customerDataGridView.Rows[e.RowIndex].Cells["ID"].Value);
 
-                    // CapillarContextFactory használata a CapillarContext példányosításához
+                    // Use CapillarContextFactory to instantiate a CapillarContext
                     var factory = new CapillarContextFactory();
                     using var context = factory.CreateDbContext(null);
 
                     var customer = context.Customers.Find(customerId);
                     if (customer != null)
                     {
-                        // Nyisd meg a CustomerAddForm-ot szerkesztési módban
+                        // Open the CustomerAddForm in edit mode
                         using (var editForm = new CustomerAddForm(true, customer))
                         {
                             editForm.CustomerAdded += RefreshGrid;
@@ -282,7 +284,7 @@ namespace Kupac
                 {
                     int customerId = Convert.ToInt32(customerDataGridView.SelectedRows[0].Cells["ID"].Value);
 
-                    // CapillarContextFactory használata a CapillarContext példányosításához
+                    // Using CapillarContextFactory to instantiate CapillarContext
                     var factory = new CapillarContextFactory();
                     using var context = factory.CreateDbContext(null);
 
@@ -292,7 +294,7 @@ namespace Kupac
                         context.Customers.Remove(customer);
                         context.SaveChanges();
                         MessageBox.Show("Az ügyfél sikeresen törölve.", "Információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefreshGrid(); // Frissítjük a táblázatot
+                        RefreshGrid(); // Update table
                     }
                     else
                     {
@@ -309,24 +311,22 @@ namespace Kupac
 
         private void CustomerEditorForm_Load(object sender, EventArgs e)
         {
-            //string imagePath = Path.Combine(Application.StartupPath, "Resources", "Fountain2.gif");
-            //loadingPictureBox.Image = Image.FromFile(imagePath);
             loadingPictureBox.Image = Kupac.Resources.Resource.Fountain2;
             try
             {
-                // CapillarContextFactory használata a CapillarContext példányosításához
+                // Using CapillarContextFactory to instantiate CapillarContext
                 var factory = new CapillarContextFactory();
                 using var context = factory.CreateDbContext(null);
 
-                RefreshGrid(); // A Grid frissítése az adatbázisból
-                CustomizeColumns(); // Az oszlopok testreszabása
+                RefreshGrid(); // Refresh the grid with data from the database
+                CustomizeColumns(); // Customize the columns
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Hiba történt a betöltés során: {ex.Message}", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            SetLastColumnFill(); // Utolsó oszlop kitöltése
+            SetLastColumnFill(); // Fill the last column
 
             customerDataGridView.ColumnWidthChanged += CustomerDataGridView_ColumnWidthChanged;
             this.Resize += CustomersEditorForm_Resize;

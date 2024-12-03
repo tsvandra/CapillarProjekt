@@ -10,19 +10,19 @@ namespace Kupac.UI.Shared.BaseClasses
     {
         public CustomButton()
         {
-            // Alapértelmezett stílusok beállítása
+            // Set default styles
             this.AutoSize = true;
             this.BackColor = Color.Transparent;
             this.BackgroundImageLayout = ImageLayout.Center;
             this.Cursor = Cursors.Hand;
             this.FlatStyle = FlatStyle.Flat;
 
-            // FlatStyle beállítások
+            // Configure FlatStyle properties
             this.FlatAppearance.BorderSize = 0;
             this.FlatAppearance.MouseDownBackColor = Color.FromArgb(198, 187, 171);
             this.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
 
-            // Szöveg alapértelmezett színe (ha van szöveg)
+            // Default text color (if text is present)
             this.ForeColor = Color.Transparent;
         }
     }

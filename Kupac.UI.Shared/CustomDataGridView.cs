@@ -20,12 +20,12 @@ namespace Kupac.UI.Shared.BaseClasses
             var hit = this.HitTest(e.X, e.Y);
             if (hit.Type == DataGridViewHitTestType.Cell && hit.RowIndex >= 0)
             {
-                // Visszaállítjuk az előző kiemelt sor színét, ha nem ugyanaz, mint a jelenlegi
+                // Reset the previous highlighted row's color if it's different from the current one
                 if (_lastHighlightedRowIndex >= 0 && _lastHighlightedRowIndex != hit.RowIndex && _lastHighlightedRowIndex != _selectedRowIndex)
                 {
                     ResetRowColor(_lastHighlightedRowIndex);
                 }
-                // Új sor kiemelése, ha nem a kiválasztott sor
+                // Highlight the new row if it's not the selected row
                 if (hit.RowIndex != _selectedRowIndex)
                 {
                     this.Rows[hit.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
@@ -47,12 +47,12 @@ namespace Kupac.UI.Shared.BaseClasses
         {
             if (e.RowIndex >= 0)
             {
-                // Visszaállítjuk az előző kiválasztott sor színét, ha volt már kiválasztott sor
+                // Reset the previous selected row's color if there was a previously selected row
                 if (_selectedRowIndex >= 0)
                 {
                     ResetRowColor(_selectedRowIndex);
                 }
-                // Az új kiválasztott sor színének beállítása
+                // Set the color for the newly selected row
                 this.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DodgerBlue;
                 _selectedRowIndex = e.RowIndex;
             }
@@ -75,21 +75,22 @@ namespace Kupac.UI.Shared.BaseClasses
 
         private void SetModernStyle()
         {
-            // Fejlec stilusanak beallitasa
+            // Set header style
             this.EnableHeadersVisualStyles = false;
             this.ColumnHeadersDefaultCellStyle = DataGridViewStyles.HeaderStyle();
 
-            // Sorok stilusanak beallitasa
+            // Set row styles
             this.RowsDefaultCellStyle = DataGridViewStyles.DefaultRowStyle();
             this.AlternatingRowsDefaultCellStyle = DataGridViewStyles.AlternatingRowStyle();
 
-            //Egyeb megjelenitesi beallitasok 
-            this.GridColor = Color.LightGray; 
+            // Additional appearance settings
+            this.GridColor = Color.LightGray;
             this.BorderStyle = BorderStyle.None;
             this.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             this.RowHeadersVisible = false;
             this.ReadOnly = true;
             this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
     }
 }

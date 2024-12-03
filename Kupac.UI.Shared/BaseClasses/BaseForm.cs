@@ -11,18 +11,18 @@ namespace Kupac.UI.Shared.BaseClasses
     {
 
 
-        // Windows API meghívása a form mozgatásához ------- eleje
+        // Windows API call to enable form dragging ------- start
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
-        public const int HTBOTTOMRIGHT = 17;  // Az ablak jobb alsó sarka
+        public const int HTBOTTOMRIGHT = 17;  // Bottom-right corner of the window
+
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        // Windows API meghívása a form mozgatásához ------ vege
-
+        // Windows API call to enable form dragging ------- end
 
         public const int WM_NCHITTEST = 0x84;
         public const int HTCLIENT = 1;
@@ -57,7 +57,7 @@ namespace Kupac.UI.Shared.BaseClasses
                 int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
                 int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
 
-                // 80%-os méret beállítása
+                // Set to 80% size
                 this.Size = new Size(
                     (int)((screenWidth * 0.8) / scaleFactorX),
                     (int)((screenHeight * 0.8) / scaleFactorY));
