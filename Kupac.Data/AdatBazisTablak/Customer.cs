@@ -34,6 +34,8 @@ namespace Kupac.AdatbazisTablak
         public string? Country { get; set; }
         public string? Phone { get; set; }
 
+        public string? Comment { get; set; }
+
         public Customer() { }
         public Customer(string firstName, string lastName, string email, string mobilPhone)
         {
