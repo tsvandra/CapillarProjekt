@@ -16,7 +16,7 @@ namespace Kupac.UI.Main
     {
         private CustomersEditorForm customersEditorForm;
         private Button activeButton = null;
-        
+
         //inicialisation
         public MainForm()
         {
@@ -101,11 +101,11 @@ namespace Kupac.UI.Main
                 // Invoke logic associated with the clicked button
                 if (clickedButton == customersButton)
                 {
-                    if (customersEditorForm == null || customersEditorForm.IsDisposed)
-                    {
-                        customersEditorForm = new CustomersEditorForm();
-                    }
-                    LoadFormIntoPanel(customersEditorForm);
+                    //if (customersEditorForm == null || customersEditorForm.IsDisposed)
+                    //{
+                    //    customersEditorForm = new CustomersEditorForm();
+                    //}
+                        //LoadFormIntoPanel(customersEditorForm);
                 }
                 else if (clickedButton == dashBoardButton)
                 {
@@ -172,6 +172,13 @@ namespace Kupac.UI.Main
 
         private void closeApp_Click(object sender, EventArgs e) => Application.Exit();
 
-        
+        private void customersButton_Click(object sender, EventArgs e)
+        {
+            if (customersEditorForm == null || customersEditorForm.IsDisposed)
+            {
+                customersEditorForm = new CustomersEditorForm();
+            }
+            LoadFormIntoPanel(customersEditorForm);
+        }
     }
 }

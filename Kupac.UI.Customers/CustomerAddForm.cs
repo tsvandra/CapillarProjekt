@@ -22,25 +22,15 @@ namespace Kupac.UI.Customers
         private const string defaultState = "SK";
         private const string defaultAddress = "utca";
 
-        private bool isEditMode;
+        private bool isEditMode => editingCustomer != null;
         private Customer editingCustomer;
 
-        public event Action CustomerAdded;
-        public CustomerAddForm()
+        public CustomerAddForm(Customer customer = null)
         {
             InitializeComponent();
-            _isEditMode = isEditMode;
-
-            
-        }
-
-        public CustomerAddForm(bool isEditMode = false, Customer customer = null)
-        {
-            InitializeComponent();
-            this.isEditMode = isEditMode;
             this.editingCustomer = customer;
 
-            if (isEditMode && customer != null)
+            if (isEditMode)
             {
                 // Load existing customer data
                 nameTextbox.Text = customer.FirstName;
@@ -191,7 +181,6 @@ namespace Kupac.UI.Customers
             {
                 cityTextBox.ForeColor = Color.Black;
                 cityTextBox.Text = "";
-
             }
         }
 
@@ -202,68 +191,73 @@ namespace Kupac.UI.Customers
                 cityTextBox.Text = defaultCity;
                 cityTextBox.ForeColor = Color.Gray;
             }
+
+            if (cityTextBox.Text != defaultCity)
+            {
+                postalCodeTextBox.Text = "";
+            }
         }
 
         private void addCustomer_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.None;
             if (!ValidateFields())
             {
                 return;
             }
             var factory = new CapillarContextFactory();
             using var context = factory.CreateDbContext(null);
-            
+
             string phoneNumber = mobilPhoneTextBox.Text;
 
-                if (IsPhoneNumberDuplicated(phoneNumber, context))
-                {
-                    MessageBox.Show("Az adott mobiltelefonszám már létezik az adatbázisban.");
-                    return;
-                }
+            if (IsPhoneNumberDuplicated(phoneNumber, context))
+            {
+                MessageBox.Show("Az adott mobiltelefonszám már létezik az adatbázisban.");
+                return;
+            }
 
-                if (isEditMode)
+            if (isEditMode)
+            {
+                var customer = context.Customers.Find(editingCustomer.Id);
+                if (customer != null)
                 {
-                    var customer = context.Customers.Find(editingCustomer.Id);
-                    if (customer != null)
-                    {
-                        customer.FirstName = nameTextbox.Text;
-                        customer.LastName = priezviskoTextBox.Text;
-                        customer.Email = emailTextBox.Text;
-                        customer.MobilPhone = mobilPhoneTextBox.Text;
-                        customer.Address = addressTextBox.Text;
-                        customer.City = cityTextBox.Text;
-                        customer.PostalCode = postalCodeTextBox.Text;
-                        customer.Country = stateTextBox.Text;
-                        customer.Phone = phoneTextBox.Text;
+                    customer.FirstName = nameTextbox.Text;
+                    customer.LastName = priezviskoTextBox.Text;
+                    customer.Email = emailTextBox.Text;
+                    customer.MobilPhone = mobilPhoneTextBox.Text;
+                    customer.Address = addressTextBox.Text;
+                    customer.City = cityTextBox.Text;
+                    customer.PostalCode = postalCodeTextBox.Text;
+                    customer.Country = stateTextBox.Text;
+                    customer.Phone = phoneTextBox.Text;
 
-                        context.SaveChanges();
-                        MessageBox.Show("Az ügyfél sikeresen frissítve.");
-                        this.Close();
-                    }
-                }
-                else
-                {
-                    var customer = new Customer
-                    {
-                        FirstName = nameTextbox.Text,
-                        LastName = priezviskoTextBox.Text,
-                        Email = emailTextBox.Text,
-                        MobilPhone = mobilPhoneTextBox.Text,
-                        Address = addressTextBox.Text,
-                        City = cityTextBox.Text,
-                        PostalCode = postalCodeTextBox.Text,
-                        Country = stateTextBox.Text,
-                        Phone = phoneTextBox.Text,
-                    };
-                    context.Customers.Add(customer);
                     context.SaveChanges();
-
-                    CustomerAdded?.Invoke();
-                    MessageBox.Show($"Az új ügyfél {customer.LastName} {customer.FirstName} sikeresen hozzáadva");
-                    this.Close();
+                    MessageBox.Show("Az ügyfél sikeresen frissítve.");
+                    DialogResult = DialogResult.OK;
                 }
+            }
+            else
+            {
+                var customer = new Customer
+                {
+                    FirstName = nameTextbox.Text,
+                    LastName = priezviskoTextBox.Text,
+                    Email = emailTextBox.Text,
+                    MobilPhone = mobilPhoneTextBox.Text,
+                    Address = addressTextBox.Text,
+                    City = cityTextBox.Text,
+                    PostalCode = postalCodeTextBox.Text,
+                    Country = stateTextBox.Text,
+                    Phone = phoneTextBox.Text,
+                };
+                context.Customers.Add(customer);
+                context.SaveChanges();
+
+                MessageBox.Show($"Az új ügyfél {customer.LastName} {customer.FirstName} sikeresen hozzáadva");
+                DialogResult = DialogResult.OK;
+            }
         }
-        
+
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -275,17 +269,24 @@ namespace Kupac.UI.Customers
             if (postalCodeTextBox.Text == defaultPostalCode)
             {
                 postalCodeTextBox.ForeColor = Color.Black;
-                postalCodeTextBox.Text = "";
+                postalCodeTextBox.Text = string.Empty;
 
             }
         }
 
         private void postalCodeTextBox_Leave(object sender, EventArgs e)
         {
+            string cityText = cityTextBox.Text;
             if (string.IsNullOrWhiteSpace(postalCodeTextBox.Text))
             {
                 postalCodeTextBox.Text = defaultPostalCode;
                 postalCodeTextBox.ForeColor = Color.Gray;
+            }
+
+            if (cityText == defaultCity)
+            {
+                postalCodeTextBox.Text = defaultPostalCode;
+                postalCodeTextBox.ForeColor = Color.Black;
             }
         }
 

@@ -39,7 +39,7 @@ namespace Kupac
                 }
 
                 // Fill in the last column
-                var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 2];
+                var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 1];
                 lastColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
@@ -49,7 +49,7 @@ namespace Kupac
             if (customerDataGridView.Columns.Count > 0)
             {
                 // Enable editing for the last column
-                var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 2];
+                var lastColumn = customerDataGridView.Columns[customerDataGridView.Columns.Count - 1];
                 lastColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                 // The other columns have fixed sizes
@@ -174,7 +174,7 @@ namespace Kupac
                         maxWidth = Math.Max(maxWidth, cellSize.Width);
                     }
                 }
-                
+
                 var headerWidth = GetHeaderTextWidth(column);
                 if (headerWidth > ((int)maxWidth + 20))
                 {
@@ -191,34 +191,19 @@ namespace Kupac
 
         private void addNewCustomerButton_Click(object sender, EventArgs e)
         {
-            using (var addForm = new CustomerAddForm())
-            {
-                addForm.CustomerAdded += RefreshGrid;
-                addForm.ShowDialog();
-
-            }
-
+            AddOrEditCustomer();
         }
 
-        public async void RefreshGrid()
+        public async Task RefreshGrid()
         {
             try
             {
                 // Display loading animation
                 loadingPictureBox.Visible = true;
-
-                await Task.Run(() =>
-                {
-                    var factory = new CapillarContextFactory();
-                    using var context = factory.CreateDbContext(null);
-
-                    _customerManager.LoadCustomersFromDatabase(context);
-
-                });
+                customerDataGridView.DataSource = null;
+                customerDataGridView.DataSource = await _customerManager.GetCustomers();
 
                 // Update data
-                customerDataGridView.DataSource = null;
-                customerDataGridView.DataSource = _customerManager.GetCustomers();
 
                 CustomizeColumns();
             }
@@ -249,12 +234,7 @@ namespace Kupac
                     var customer = context.Customers.Find(customerId);
                     if (customer != null)
                     {
-                        // Open the CustomerAddForm in edit mode
-                        using (var editForm = new CustomerAddForm(true, customer))
-                        {
-                            editForm.CustomerAdded += RefreshGrid;
-                            editForm.ShowDialog();
-                        }
+                        AddOrEditCustomer(customer);
                     }
                     else
                     {
@@ -268,6 +248,16 @@ namespace Kupac
             }
         }
 
+        private void AddOrEditCustomer(Customer customer = null)
+        {
+            using (var editForm = new CustomerAddForm(customer))
+            {
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshGrid();
+                }
+            }
+        }
 
         private void deleteCustomerButton_Click(object sender, EventArgs e)
         {

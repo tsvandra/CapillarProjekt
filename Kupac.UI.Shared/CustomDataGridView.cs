@@ -53,7 +53,7 @@ namespace Kupac.UI.Shared.BaseClasses
                     ResetRowColor(_selectedRowIndex);
                 }
                 // Set the color for the newly selected row
-                this.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                this.Rows[e.RowIndex].DefaultCellStyle = new DataGridViewCellStyle() { BackColor = Color.Red };
                 _selectedRowIndex = e.RowIndex;
             }
         }

@@ -8,6 +8,8 @@ namespace Kupac.UI.Main
 {
     public partial class LoginForm : BaseForm
     {
+        private const string admin = "admin";
+
         public LoginForm()
         {
             InitializeComponent();

@@ -122,6 +122,7 @@
             customersButton.TabIndex = 8;
             customersButton.Text = "Zákazníci";
             customersButton.UseVisualStyleBackColor = false;
+            customersButton.Click += customersButton_Click;
             customersButton.MouseEnter += navigationButton_MouseEnter;
             customersButton.MouseLeave += navigationButton_MouseLeave;
             customersButton.MouseMove += navigationButton_MouseMove;

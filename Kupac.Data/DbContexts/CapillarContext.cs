@@ -14,6 +14,7 @@ namespace Kupac.DbContexts
     {
         public CapillarContext(DbContextOptions<CapillarContext> options) : base(options)
         {
+
         }
 
         public DbSet<Customer> Customers { get; set; } = null!;

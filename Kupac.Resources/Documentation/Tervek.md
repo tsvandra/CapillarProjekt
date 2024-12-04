@@ -1,4 +1,4 @@
-- komment mezo
+- komment mezo -OK
 - ha a kozseg valtozik torlodjon ki a PSC
 
 ugyfel tablahoz csatlakozik (id, név)

@@ -1,4 +1,5 @@
 ﻿using Kupac.DbContexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,13 @@ namespace Kupac.AdatbazisTablak
 {
     public class CustomerManager
     {
+        private readonly CapillarContextFactory factory;
+
+        public CustomerManager()
+        {
+            this.factory = new CapillarContextFactory();
+        }
+
         private List<Customer> customers = new List<Customer>();
 
         public void AddCustomer(Customer customer)
@@ -29,18 +37,12 @@ namespace Kupac.AdatbazisTablak
             }
         }
 
-        public List<Customer> GetCustomers()
+        public async Task<IEnumerable<Customer>> GetCustomers()
         {
-            return customers.OrderByDescending(c => c.LastName).ToList();
+            using (var context = factory.CreateDbContext(null))
+            {
+                return await context.Customers.OrderBy(c => c.LastName).ToArrayAsync();
+            }
         }
-
-
-
-        public void LoadCustomersFromDatabase(CapillarContext context)
-        {
-            customers = context.Customers.OrderBy(c => c.LastName).ToList();
-        }
-
-
     }
 }
