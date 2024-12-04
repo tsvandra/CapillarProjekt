@@ -29,6 +29,7 @@ namespace Kupac.UI.Shared.BaseClasses
                 if (hit.RowIndex != _selectedRowIndex)
                 {
                     this.Rows[hit.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+                    //this.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Salmon;
                 }
                 _lastHighlightedRowIndex = hit.RowIndex;
             }
@@ -53,7 +54,7 @@ namespace Kupac.UI.Shared.BaseClasses
                     ResetRowColor(_selectedRowIndex);
                 }
                 // Set the color for the newly selected row
-                this.Rows[e.RowIndex].DefaultCellStyle = new DataGridViewCellStyle() { BackColor = Color.Red };
+                //this.Rows[e.RowIndex].DefaultCellStyle = new DataGridViewCellStyle() { BackColor = Color.Red };
                 _selectedRowIndex = e.RowIndex;
             }
         }
@@ -75,6 +76,8 @@ namespace Kupac.UI.Shared.BaseClasses
 
         private void SetModernStyle()
         {
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            
             // Set header style
             this.EnableHeadersVisualStyles = false;
             this.ColumnHeadersDefaultCellStyle = DataGridViewStyles.HeaderStyle();
