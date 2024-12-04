@@ -52,6 +52,7 @@ namespace Kupac
             // 
             // customerDataGridView
             // 
+            
             customerDataGridView.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(240, 240, 240);
             dataGridViewCellStyle1.ForeColor = Color.Black;
@@ -60,8 +61,10 @@ namespace Kupac
             customerDataGridView.BorderStyle = BorderStyle.None;
             customerDataGridView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             customerDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(58, 68, 90);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(82, 42, 40);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(82, 42, 40); // colorheader
             dataGridViewCellStyle2.Font = new Font("Arial", 12F, FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
@@ -79,6 +82,7 @@ namespace Kupac
             dataGridViewCellStyle3.SelectionBackColor = Color.DodgerBlue;
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             customerDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            customerDataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.Salmon;
             customerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             customerDataGridView.Size = new Size(1179, 493);
             customerDataGridView.TabIndex = 21;

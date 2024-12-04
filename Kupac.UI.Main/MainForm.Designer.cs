@@ -37,19 +37,19 @@
             closeApp = new Button();
             mainInformationPanel = new Panel();
             mainPanel = new Panel();
-            leftPanel = new Panel();
-            leftTopPanel = new Panel();
-            warningsPanel = new Panel();
             rightPanel = new Panel();
-            miniDashboardPanel = new Panel();
             extraDetailPanel = new Panel();
+            miniDashboardPanel = new Panel();
+            leftPanel = new Panel();
+            warningsPanel = new Panel();
+            leftTopPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)userPictureBox).BeginInit();
             navigationalPanel.SuspendLayout();
             mainPanel.SuspendLayout();
-            leftPanel.SuspendLayout();
-            leftTopPanel.SuspendLayout();
             rightPanel.SuspendLayout();
             miniDashboardPanel.SuspendLayout();
+            leftPanel.SuspendLayout();
+            leftTopPanel.SuspendLayout();
             SuspendLayout();
             // 
             // userPictureBox
@@ -139,7 +139,6 @@
             // minimiseApp
             // 
             minimiseApp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            minimiseApp.BackColor = Color.Thistle;
             minimiseApp.FlatAppearance.BorderSize = 0;
             minimiseApp.FlatStyle = FlatStyle.Flat;
             minimiseApp.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -156,7 +155,6 @@
             // closeApp
             // 
             closeApp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            closeApp.BackColor = Color.Thistle;
             closeApp.FlatAppearance.BorderSize = 0;
             closeApp.FlatStyle = FlatStyle.Flat;
             closeApp.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -188,34 +186,6 @@
             mainPanel.Size = new Size(1308, 736);
             mainPanel.TabIndex = 0;
             // 
-            // leftPanel
-            // 
-            leftPanel.Controls.Add(navigationalPanel);
-            leftPanel.Controls.Add(warningsPanel);
-            leftPanel.Controls.Add(leftTopPanel);
-            leftPanel.Dock = DockStyle.Left;
-            leftPanel.Location = new Point(0, 0);
-            leftPanel.Name = "leftPanel";
-            leftPanel.Size = new Size(224, 736);
-            leftPanel.TabIndex = 3;
-            // 
-            // leftTopPanel
-            // 
-            leftTopPanel.Controls.Add(userPictureBox);
-            leftTopPanel.Dock = DockStyle.Top;
-            leftTopPanel.Location = new Point(0, 0);
-            leftTopPanel.Name = "leftTopPanel";
-            leftTopPanel.Size = new Size(224, 219);
-            leftTopPanel.TabIndex = 0;
-            // 
-            // warningsPanel
-            // 
-            warningsPanel.Dock = DockStyle.Bottom;
-            warningsPanel.Location = new Point(0, 556);
-            warningsPanel.Name = "warningsPanel";
-            warningsPanel.Size = new Size(224, 180);
-            warningsPanel.TabIndex = 2;
-            // 
             // rightPanel
             // 
             rightPanel.Controls.Add(mainInformationPanel);
@@ -227,6 +197,14 @@
             rightPanel.Size = new Size(1084, 736);
             rightPanel.TabIndex = 4;
             // 
+            // extraDetailPanel
+            // 
+            extraDetailPanel.Dock = DockStyle.Bottom;
+            extraDetailPanel.Location = new Point(0, 636);
+            extraDetailPanel.Name = "extraDetailPanel";
+            extraDetailPanel.Size = new Size(1084, 100);
+            extraDetailPanel.TabIndex = 2;
+            // 
             // miniDashboardPanel
             // 
             miniDashboardPanel.Controls.Add(minimiseApp);
@@ -237,13 +215,33 @@
             miniDashboardPanel.Size = new Size(1084, 100);
             miniDashboardPanel.TabIndex = 0;
             // 
-            // extraDetailPanel
+            // leftPanel
             // 
-            extraDetailPanel.Dock = DockStyle.Bottom;
-            extraDetailPanel.Location = new Point(0, 636);
-            extraDetailPanel.Name = "extraDetailPanel";
-            extraDetailPanel.Size = new Size(1084, 100);
-            extraDetailPanel.TabIndex = 2;
+            leftPanel.Controls.Add(navigationalPanel);
+            leftPanel.Controls.Add(warningsPanel);
+            leftPanel.Controls.Add(leftTopPanel);
+            leftPanel.Dock = DockStyle.Left;
+            leftPanel.Location = new Point(0, 0);
+            leftPanel.Name = "leftPanel";
+            leftPanel.Size = new Size(224, 736);
+            leftPanel.TabIndex = 3;
+            // 
+            // warningsPanel
+            // 
+            warningsPanel.Dock = DockStyle.Bottom;
+            warningsPanel.Location = new Point(0, 556);
+            warningsPanel.Name = "warningsPanel";
+            warningsPanel.Size = new Size(224, 180);
+            warningsPanel.TabIndex = 2;
+            // 
+            // leftTopPanel
+            // 
+            leftTopPanel.Controls.Add(userPictureBox);
+            leftTopPanel.Dock = DockStyle.Top;
+            leftTopPanel.Location = new Point(0, 0);
+            leftTopPanel.Name = "leftTopPanel";
+            leftTopPanel.Size = new Size(224, 219);
+            leftTopPanel.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -257,10 +255,10 @@
             ((System.ComponentModel.ISupportInitialize)userPictureBox).EndInit();
             navigationalPanel.ResumeLayout(false);
             mainPanel.ResumeLayout(false);
-            leftPanel.ResumeLayout(false);
-            leftTopPanel.ResumeLayout(false);
             rightPanel.ResumeLayout(false);
             miniDashboardPanel.ResumeLayout(false);
+            leftPanel.ResumeLayout(false);
+            leftTopPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 

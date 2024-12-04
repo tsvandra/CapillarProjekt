@@ -14,7 +14,7 @@ namespace Kupac.UI.Shared.BaseClasses
             {
                 BackColor = Color.White,
                 ForeColor = Color.Black,
-                SelectionBackColor = Color.DodgerBlue,
+                SelectionBackColor = Color.FromArgb(254, 190, 152),
                 SelectionForeColor = Color.White,
             };
         }
@@ -32,7 +32,7 @@ namespace Kupac.UI.Shared.BaseClasses
         {
             return new DataGridViewCellStyle
             {
-                BackColor = Color.FromArgb(58, 68, 90),
+                BackColor = Color.FromArgb(82, 42, 40),
                 ForeColor = Color.White,
                 Font = new Font("Arial", 12F, FontStyle.Bold),
                 Alignment = DataGridViewContentAlignment.MiddleCenter

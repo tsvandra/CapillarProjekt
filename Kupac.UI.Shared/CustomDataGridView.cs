@@ -56,6 +56,7 @@ namespace Kupac.UI.Shared.BaseClasses
                 // Set the color for the newly selected row
                 //this.Rows[e.RowIndex].DefaultCellStyle = new DataGridViewCellStyle() { BackColor = Color.Red };
                 _selectedRowIndex = e.RowIndex;
+                this.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.Salmon;
             }
         }
 
@@ -76,8 +77,9 @@ namespace Kupac.UI.Shared.BaseClasses
 
         private void SetModernStyle()
         {
+            this.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(82, 42, 40);
             this.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            
+
             // Set header style
             this.EnableHeadersVisualStyles = false;
             this.ColumnHeadersDefaultCellStyle = DataGridViewStyles.HeaderStyle();

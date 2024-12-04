@@ -37,7 +37,7 @@ namespace Kupac.UI.Shared.BaseClasses
 
         public BaseForm() 
         {
-            this.BackColor = Color.Thistle;
+            this.BackColor = Color.FromArgb(254, 190, 152); //#febe98 , Peach Fuzz
 
             FormBorderStyle = FormBorderStyle.None;
             StartPosition = FormStartPosition.CenterScreen;

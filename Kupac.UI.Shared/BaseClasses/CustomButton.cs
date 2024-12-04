@@ -19,7 +19,7 @@ namespace Kupac.UI.Shared.BaseClasses
 
             // Configure FlatStyle properties
             this.FlatAppearance.BorderSize = 0;
-            this.FlatAppearance.MouseDownBackColor = Color.FromArgb(198, 187, 171);
+            this.FlatAppearance.MouseDownBackColor = Color.FromArgb(254, 190, 152);
             this.FlatAppearance.MouseOverBackColor = Color.AntiqueWhite;
 
             // Default text color (if text is present)

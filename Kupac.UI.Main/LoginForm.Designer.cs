@@ -154,7 +154,6 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.Thistle;
             button1.Dock = DockStyle.Top;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
@@ -170,7 +169,6 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.Thistle;
             button3.Dock = DockStyle.Top;
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
