@@ -42,6 +42,7 @@ namespace Kupac.UI.Customers
                 postalCodeTextBox.Text = customer.PostalCode;
                 stateTextBox.Text = customer.Country;
                 phoneTextBox.Text = customer.Phone;
+                commentTextBox.Text = customer.Comment;
 
                 addCustomer.Text = "Mentés";
             }
@@ -230,6 +231,7 @@ namespace Kupac.UI.Customers
                     customer.PostalCode = postalCodeTextBox.Text;
                     customer.Country = stateTextBox.Text;
                     customer.Phone = phoneTextBox.Text;
+                    customer.Comment = commentTextBox.Text;
 
                     context.SaveChanges();
                     MessageBox.Show("Az ügyfél sikeresen frissítve.");
@@ -249,6 +251,7 @@ namespace Kupac.UI.Customers
                     PostalCode = postalCodeTextBox.Text,
                     Country = stateTextBox.Text,
                     Phone = phoneTextBox.Text,
+                    Comment = commentTextBox.Text,
                 };
                 context.Customers.Add(customer);
                 context.SaveChanges();
