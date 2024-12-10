@@ -14,7 +14,7 @@ namespace Kupac.UI.Main
 {
     public partial class MainForm : BaseForm
     {
-        private CustomersEditorForm customersEditorForm;
+        private CustomerListForm customersEditorForm;
         private Button activeButton = null;
 
         //inicialisation
@@ -176,7 +176,7 @@ namespace Kupac.UI.Main
         {
             if (customersEditorForm == null || customersEditorForm.IsDisposed)
             {
-                customersEditorForm = new CustomersEditorForm();
+                customersEditorForm = new CustomerListForm();
             }
             LoadFormIntoPanel(customersEditorForm);
         }

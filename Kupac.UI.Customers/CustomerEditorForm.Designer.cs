@@ -1,6 +1,6 @@
 ﻿namespace Kupac.UI.Customers
 {
-    partial class CustomerAddForm
+    partial class CustomerEditorForm
     {
         /// <summary>
         ///  Required designer variable.

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Kupac.UI.Customers
 {
-    public partial class CustomerAddForm : BaseForm
+    public partial class CustomerEditorForm : BaseForm
     {
         private bool _isEditMode;
 
@@ -25,7 +25,7 @@ namespace Kupac.UI.Customers
         private bool isEditMode => editingCustomer != null;
         private Customer editingCustomer;
 
-        public CustomerAddForm(Customer customer = null)
+        public CustomerEditorForm(Customer customer = null)
         {
             InitializeComponent();
             this.editingCustomer = customer;

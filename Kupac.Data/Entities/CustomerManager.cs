@@ -11,13 +11,12 @@ namespace Kupac.Entities
     public class CustomerManager
     {
         private readonly CapillarContextFactory factory;
+        private List<Customer> customers = new List<Customer>();
 
         public CustomerManager()
         {
             this.factory = new CapillarContextFactory();
         }
-
-        private List<Customer> customers = new List<Customer>();
 
         public void AddCustomer(Customer customer)
         {

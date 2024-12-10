@@ -4,7 +4,7 @@ using Kupac.Resources;
 
 namespace Kupac
 {
-    partial class CustomersEditorForm
+    partial class CustomerListForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -36,7 +36,7 @@ namespace Kupac
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersEditorForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerListForm));
             customerDataGridView = new CustomDataGridView();
             customerManagerBindingSource1 = new BindingSource(components);
             customerManagerBindingSource = new BindingSource(components);

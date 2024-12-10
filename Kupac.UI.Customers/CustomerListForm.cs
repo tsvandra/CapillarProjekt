@@ -11,13 +11,13 @@ using Kupac.Resources;
 
 namespace Kupac
 {
-    public partial class CustomersEditorForm : BaseForm
+    public partial class CustomerListForm : BaseForm
     {
         public CustomerManager _customerManager;
         private const string defaultText = "Zadat hodnotu";
-        private CustomersEditorForm customersEditorForm;
+        private CustomerListForm customersEditorForm;
 
-        public CustomersEditorForm()
+        public CustomerListForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -250,7 +250,7 @@ namespace Kupac
 
         private void AddOrEditCustomer(Customer customer = null)
         {
-            using (var editForm = new CustomerAddForm(customer))
+            using (var editForm = new CustomerEditorForm(customer))
             {
                 if (editForm.ShowDialog() == DialogResult.OK)
                 {
