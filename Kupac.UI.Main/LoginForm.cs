@@ -1,4 +1,4 @@
-using Kupac.AdatbazisTablak;
+using Kupac.Entities;
 using Kupac.DbContexts;
 //using Kupac.UI.Main.Properties;
 using Kupac.UI.Shared.BaseClasses;

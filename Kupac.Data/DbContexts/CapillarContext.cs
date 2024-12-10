@@ -1,5 +1,5 @@
-﻿using Kupac.AdatbazisTablak;
-using Kupac.Data.AdatBazisTablak;
+﻿using Kupac.Entities;
+using Kupac.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

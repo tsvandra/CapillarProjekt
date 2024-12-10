@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Kupac.Data.AdatBazisTablak
+namespace Kupac.Data.Entities
 {
     [Table("CustomerDetail")]
     public class CustomerDetail

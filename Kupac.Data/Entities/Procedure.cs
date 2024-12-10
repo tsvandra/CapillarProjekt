@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kupac.Data.AdatBazisTablak
+namespace Kupac.Data.Entities
 {
     [Table("Procedure")]
     public class Procedure

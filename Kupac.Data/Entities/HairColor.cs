@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.InteropServices;
 
-namespace Kupac.Data.AdatBazisTablak
+namespace Kupac.Data.Entities
 {
     [Table("HairColor")]
     public class HairColor
