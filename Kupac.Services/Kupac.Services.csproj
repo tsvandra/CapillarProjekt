@@ -12,8 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomerService\" />
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\Kupac.Data\Kupac.Data.csproj" />
   </ItemGroup>
 
 </Project>
