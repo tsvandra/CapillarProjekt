@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kupac.Data.DbContexts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Kupac.DbContexts
+namespace Kupac.Data.DbContexts
 {
     public class CapillarContextFactory : IDesignTimeDbContextFactory<CapillarContext>
     {

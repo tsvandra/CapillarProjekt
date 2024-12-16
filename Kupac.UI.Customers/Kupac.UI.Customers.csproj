@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Kupac.Data\Kupac.Data.csproj" />
     <ProjectReference Include="..\Kupac.Resources\Kupac.Resources.csproj" />
+    <ProjectReference Include="..\Kupac.Services\Kupac.Services.csproj" />
     <ProjectReference Include="..\Kupac.UI.Shared\Kupac.UI.Shared.csproj" />
   </ItemGroup>
 

@@ -1,17 +1,21 @@
-using Kupac.Entities;
-using Kupac.DbContexts;
+using Kupac.Data.Entities;
+using Kupac.Data.DbContexts;
 //using Kupac.UI.Main.Properties;
 using Kupac.UI.Shared.BaseClasses;
 using System.Runtime.InteropServices;
+using Kupac.Services.CustomerService;
+using Kupac.Services.Interfaces;
 
 namespace Kupac.UI.Main
 {
     public partial class LoginForm : BaseForm
     {
         private const string admin = "admin";
+        private readonly ICustomerService _customerService; // CustomerService injektálása
 
-        public LoginForm()
+        public LoginForm(ICustomerService customerService)
         {
+            _customerService = customerService;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }

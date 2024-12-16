@@ -1,5 +1,4 @@
-﻿using Kupac.Entities;
-using Kupac.Data.Entities;
+﻿using Kupac.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Kupac.DbContexts
+namespace Kupac.Data.DbContexts
 {
     public class CapillarContext : DbContext
     {

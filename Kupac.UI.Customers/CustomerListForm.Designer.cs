@@ -90,11 +90,11 @@ namespace Kupac
             // 
             // customerManagerBindingSource1
             // 
-            customerManagerBindingSource1.DataSource = typeof(Entities.CustomerManager);
+            customerManagerBindingSource1.DataSource = typeof(Services.CustomerService.CustomerManager);
             // 
             // customerManagerBindingSource
             // 
-            customerManagerBindingSource.DataSource = typeof(Entities.CustomerManager);
+            customerManagerBindingSource.DataSource = typeof(Services.CustomerService.CustomerManager);
             // 
             // addNewCustomerButton
             // 

@@ -1,5 +1,5 @@
-﻿using Kupac.Entities;
-using Kupac.DbContexts;
+﻿using Kupac.Data.Entities;
+using Kupac.Data.DbContexts;
 using Kupac.UI.Shared;
 using Kupac.UI.Shared.BaseClasses;
 using System;

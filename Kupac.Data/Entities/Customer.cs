@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kupac.Entities
+namespace Kupac.Data.Entities
 {
     [Table("Customer")]
     public class Customer
